@@ -1,0 +1,63 @@
+package PRACTICE_LTHDT.BT18;
+
+import java.util.Scanner;
+
+public class MangCD {
+    CD a[] = new CD[3];
+    Scanner kb = new Scanner (System.in);
+    
+
+    public MangCD() {
+        for (int i = 0; i < 3; i++) {
+            a[i] = new CD();
+        }
+    }
+
+    void NhapNhieuCD() {
+        for (int i = 0; i < 3; i++) 
+        {
+            System.out. println ("CD thu "+(i+1));
+            a[i].Nhap();
+        }
+    }
+
+    void XuatNhieuCD() {
+        for (int i = 0; i < 3; i++) 
+        {
+            System.out.println ("\n Xuat CD thu "+ (i+1));
+            a[i].Xuat();
+        }
+    }
+    int SLCD()
+    {
+       return a.length;
+    }
+    double TongGiaThanh ()
+    {
+        double T=0;
+        for (int i=0; i<3; i++)
+        {
+            T=T+a[i].GiaThanh;
+        }
+        return T;
+    }
+    //eqalsIgmorreCAse bỏ qua kí tự hoa hay thường
+    void Search ()
+    {
+      System.out.print("Ten Ca Si ban muon tìm: ");
+      String casi= kb.nextLine();
+      boolean flag = false;
+      for (int i=0; i<3 ; i++)
+      {
+        if (a[i].TenCS.equalsIgnoreCase (casi))
+        {
+           a[i].Xuat();
+           flag= true;
+        }
+      }
+      if(flag== false)
+      {
+        System.out.print("Khong co ca si can tim nha may!!!");
+      }
+    }
+}
